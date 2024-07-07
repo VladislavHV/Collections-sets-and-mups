@@ -20,10 +20,15 @@ public class Main {
      */
 
     public static void printEvenNumbers(List<Integer> nums) {
-        List<Integer> oddNumbers = nums.stream()
-                .filter(number -> number % 2 == 0)
-                .collect(Collectors.toList());
-        System.out.println(oddNumbers);
+        Set<Integer> oddNumbers = new TreeSet<>();
+        for (Integer number : nums){
+            if (number % 2 == 0) {
+                oddNumbers.add(number);
+            }
+        }
+        for (Integer number : oddNumbers) {
+            System.out.println(oddNumbers);
+        }
     }
 
     /*
@@ -47,10 +52,7 @@ public class Main {
             vault.put(takes, vault.getOrDefault(takes, 0) + 1);
         }
         for (Map.Entry<String, Integer> entry : vault.entrySet()) {
-            String takes = entry.getKey();
-            int count = entry.getValue();
-            int dublicat = count - 1;
-            System.out.println(takes + " - " + dublicat);
+            System.out.println(entry.getKey() + " - " + (entry.getValue() - 1));
         }
     }
 
@@ -61,7 +63,7 @@ public class Main {
 
         printEvenNumbers(nums);
 
-        List<String> nums2 = Arrays.asList("card", "soft", "soft", "retry", "safari", "safari", "puls");
+        List<String> nums2 = Arrays.asList("card", "soft", "soft", "soft", "retry", "safari", "safari", "puls", "soft", "soft");
 
         printUniqueWords(nums2);
 
