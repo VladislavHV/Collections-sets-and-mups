@@ -27,7 +27,7 @@ public class Main {
             }
         }
         for (Integer number : oddNumbers) {
-            System.out.println(oddNumbers);
+            System.out.println(number);
         }
     }
 
